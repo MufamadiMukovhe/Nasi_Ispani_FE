@@ -1,0 +1,7 @@
+{
+  "name": "NasiIspani",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
