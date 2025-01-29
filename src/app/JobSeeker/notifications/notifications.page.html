@@ -1,0 +1,16 @@
+<ion-content [fullscreen]="true">
+  <app-profile-layer></app-profile-layer>
+
+  <div class="container" style="margin-top: 5%;">
+    <div class="box">
+      <div class="container-2">
+        <div class="box" *ngFor="let notification of notifications" style="margin-top: 2%;">
+                <span class="notif-msg">{{ notification.message }}</span>
+                <ion-img  src="../../../assets/images/delete.svg" class="delete text-end"> </ion-img>
+          </div>
+      </div>
+    </div>
+
+    <app-menu></app-menu>
+  </div>
+</ion-content>

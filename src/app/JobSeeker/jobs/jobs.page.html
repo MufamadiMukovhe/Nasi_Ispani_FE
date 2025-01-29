@@ -1,0 +1,42 @@
+
+<ion-content [fullscreen]="true">
+  <div class=" justify-content-center align-items-center" style="margin-top: 5%;">
+    <app-profile-layer></app-profile-layer>
+</div>
+
+<div class="container justify-content-center align-items-center" style="margin-top: 5%;">
+  <div style="margin-bottom: 2%;">
+    <app-search-form></app-search-form>
+  </div>
+
+  <div style="margin-top: 5%;">
+    <div class="box-2" *ngFor="let job of jobs" style="margin-bottom: 2%;" (click)="toDetails()">
+      <!-- Job Title -->
+      <div class="d-flex align-items-center">
+        <i class="bi bi-briefcase icon-color"></i> <!-- Fixed icon -->
+        <div class="vertical-line mx-3"></div>
+        <span class="job-name">{{ job.title }}</span>
+      </div>
+  
+      <!-- Company Name -->
+      <div class="d-flex align-items-center">
+        <ion-img src="../../../assets/images/Company.svg"></ion-img> <!-- Fixed image -->
+        <div class="vertical-line mx-3"></div>
+        <span class="company-name">{{ job.company }}</span>
+      </div>
+  
+      <!-- Location -->
+      <div class="d-flex align-items-center">
+        <i class="bi bi-geo-alt-fill icon-color"></i> <!-- Fixed icon -->
+        <div class="vertical-line mx-3"></div>
+        <span class="company-name">{{ job.location }}</span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <app-menu></app-menu>
+  </div>
+
+</ion-content>

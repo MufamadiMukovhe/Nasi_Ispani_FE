@@ -1,0 +1,49 @@
+<div class="menu-mobile box mt-5">
+  <div class="d-flex">
+    <a
+      class="menu-item"
+      routerLink="/jobs"
+      routerLinkActive="active-menu-item"
+    >
+      <img
+        [src]="isActive('/jobs') ? '../../../assets/images/HomeActive.svg' : '../../../assets/images/Home.svg'"
+        class="menu-icon"
+      />
+      <span class="a-text">Home</span>
+    </a>
+    <a
+      class="menu-item"
+      routerLink="/notifications"
+      routerLinkActive="active-menu-item"
+    >
+      <img
+        [src]="isActive('/notifications') ? '../../../assets/images/NotificationsActive.svg' : '../../../assets/images/Notification_icon.svg'"
+        class="menu-icon"
+      />
+      <span class="a-text">Notification</span>
+    </a>
+    <a
+      class="menu-item"
+      routerLink="/jobs"
+      routerLinkActive="active-menu-item"
+    >
+      <img
+        [src]="isActive('/jobs') ? '../../../assets/images/JobsActive.svg' : '../../../assets/images/Jobs_Icon.svg'"
+        class="menu-icon"
+      />
+      <span class="a-text">Jobs</span>
+    </a>
+    <a
+      class="menu-item"
+      routerLink="/applications"
+      routerLinkActive="active-menu-item"
+    >
+      <img
+        [src]="isActive('/applications') ? '../../../assets/images/ApplicationsActiv.svg' : '../../../assets/images/Application_Icon.svg'"
+        class="menu-icon"
+      />
+      <span class="a-text">Applications</span>
+    </a>
+  </div>
+</div>
+

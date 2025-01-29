@@ -1,0 +1,53 @@
+.header-section{
+    background-color: #FF4A17;
+    padding: 5px 10px;
+    width: auto !important;
+    border-radius: 4px;
+}
+.header{
+    font-weight: 500;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+  ion-col{
+    border: 0.5px solid rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.left-col{
+    margin-left: 5px !important;
+}
+
+.job-title{
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.job-company{
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.view-job{
+    background-color: #FF4A17;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 2px;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px;
+}
+
+.left{
+    margin-left: 10px;
+}
+  

@@ -1,0 +1,65 @@
+.img-size{
+    width: 45px;
+    height: 45px;
+    border: 1.5px solid #FF4A17;
+    border-radius: 50%;
+}
+
+.name{
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px;
+    color: #FF4A17;
+    font-weight: 700 !important;
+    margin-top: 7%;
+    margin-right: 5px;
+}
+
+.dropdown-content{
+    background-color: #fff;
+    color: rgba(42, 43, 42, 1);
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    margin-top: 15px;
+    border-radius: 4px;
+    width: 130px !important;
+    float: inline-end !important;
+    z-index: 1 !important;
+}
+
+.dropdown-content span{
+    float:inline-start;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+
+}
+
+  
+  .item {
+    display: flex;
+    align-items: center;
+    float: inline-start !important;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px; 
+    float: inline-end !important;
+    margin-right: 15px !important;
+  }
+
+  
+ 
+  
+
+  
+
+  
+
+     
+  
+
+ 
+  
+

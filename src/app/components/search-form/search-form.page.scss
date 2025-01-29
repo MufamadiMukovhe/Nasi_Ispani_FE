@@ -1,0 +1,38 @@
+input{
+    border: 1px solid rgba(50, 50, 50, 0.5);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: rgba(50, 50, 50, 0.5);
+    font-weight: 500;
+    height: 40px !important;
+    border-radius: 4px;
+    width: 70%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+input:focus {
+    border: 1px solid rgba(50, 50, 50, 0.5) !important;
+    outline: none;
+  }
+  
+
+.form{
+    width: 100% !important;
+}
+
+.filter-button{
+    background-color: #FF4A17;
+    width: 30%;
+    margin-left: 10px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.filter-icon{
+    margin-right: 10px !important;
+}
+

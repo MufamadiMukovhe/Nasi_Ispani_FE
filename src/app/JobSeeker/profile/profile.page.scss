@@ -1,0 +1,131 @@
+.banner-image{
+    width: 100%;
+    height: auto !important;
+    z-index: 0;
+}
+
+.image-container {
+    position: relative; 
+    display: inline-block; 
+    z-index: 0;
+  }
+  
+  .camera-image {
+    position: absolute; 
+    top: 80%;
+    left: 80% !important; 
+    transform: translate(50%, -50%); 
+    height: auto; 
+    width: 40px;
+
+  }
+
+  .card{
+    width: 100%;
+    border: none;
+    border-radius: 0px;
+    height: auto;
+  }
+  .profile-image{
+    border: 4px solid #FF4A17;
+    border-radius: 50% !important;
+    margin-top: -20%;
+    z-index: 999;
+    transform: translateX(10%); 
+  }
+
+  .intro{
+    font-family: 'Poppins', sans-serif;
+  }
+  .header{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px !important;
+  }
+
+  .button-add{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+    color: #FF4A17;
+    text-decoration: underline;
+    float: inline-end !important;
+  }
+
+  .collapsed {
+    overflow: hidden;
+    height: 100px;
+    text-overflow: ellipsis;
+  }
+
+  .view-more{
+    color: #FF4A17;
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-top: -5%;
+  }
+  .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .pagination-controls button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  
+  .pagination-controls span {
+    font-size: 14px;
+  }
+  .container {
+    padding-bottom: 80px !important; 
+  }
+  .page-link:focus {
+    outline: none !important;
+    box-shadow: none !important; 
+  }
+  
+  .pagination .page-item .page-link {
+    color: #6c757d; 
+    border: 1px solid #FF4A17;
+    margin: 0 5px; 
+    border-radius: 4px; 
+    transition: all 0.3s ease; 
+    font-weight: 500;
+  }
+  
+  
+  .pagination .page-item.active .page-link {
+    background-color: #FF4A17 !important; 
+    color: #fff !important;
+    border-color: #FF4A17 !important; 
+    font-weight: bold !important; 
+  }
+  
+
+  .pagination .page-item.active .page-link:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .pagination .page-item.disabled .page-link {
+    color: #6c757d; 
+    background-color: #e9ecef; 
+    border-color: #e9ecef;
+    cursor: not-allowed; 
+  }
+  
+  .pagination {
+    padding: 10px 0; 
+  }
+  
+  
+  
+  

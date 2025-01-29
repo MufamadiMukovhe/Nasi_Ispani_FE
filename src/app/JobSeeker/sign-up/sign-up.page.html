@@ -1,0 +1,30 @@
+
+<ion-content [fullscreen]="true">
+  <div class="d-flex justify-content-center align-items-center" style="margin-top: 25%;">
+  <img src="../../../assets/images/Logo.svg">
+</div>
+
+  <div class="d-flex justify-content-center align-items-center" style="margin-top: 15%;">
+    
+    <form  class="p-4">
+      <input formControlName="fullname" type="text" placeholder="Fullname" class="mb-3">
+      <input formControlName="email" type="email" placeholder="Email address" class="mb-3">
+      <input formControlName="password" type="password" placeholder="Password" class=" mb-3">
+      <input formControlName="confirm_password" type="password" placeholder="Confirm password" class=" mb-3">
+      <div class="text-end mt-1">
+        <span class="login">Forgot password</span>
+      </div>
+      
+      <button type="submit" class="loginButton mb-2">Login</button>
+      <div class="d-flex justify-content-center">
+        <span class="accout mt-1">New User? <a> Create account</a></span>
+      </div>
+      
+    </form>
+
+  </div>
+
+ 
+  
+</ion-content>
+

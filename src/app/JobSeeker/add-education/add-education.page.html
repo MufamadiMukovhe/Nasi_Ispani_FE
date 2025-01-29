@@ -1,0 +1,28 @@
+
+
+<ion-content [fullscreen]="true" >
+  <div class="container" style="margin-top: 5% !important;">
+  <div class="box" style="margin-top: 5px;">
+    <span class="header">Add Education</span>
+        <form [formGroup]="addEducation" class="mt-2">
+          <input class="add-form-input" type="text"  placeholder="Qualification name" formControlName="qualificationName"><br>
+          <select class="add-form-input" placeholder="NQF Level" formControlName="level">
+            <option value="" selected>NQF Level</option>
+            <option>Diploma NQF6</option>
+            <option>Bachelor's degree NQF7</option>
+            <option>Honors NQF6</option>
+            <option>Masters NQF6</option>
+            <option>PHD NQF6</option>
+
+          </select><br>
+
+          <input class="add-form-input" type="text"  placeholder="Location" formControlName="location"><br>
+          <input class="add-form-input" type="Date"  placeholder="Start Date" formControlName="startDate"><br>
+          <input class="add-form-input" type="Date"  placeholder="End Date" formControlName="endDate">
+          <button class="button-save" type="submit">
+            Save</button>
+        </form>
+       
+  </div>
+</div>
+</ion-content>

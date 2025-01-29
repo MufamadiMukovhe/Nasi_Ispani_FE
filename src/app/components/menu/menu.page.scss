@@ -1,0 +1,55 @@
+.menu-mobile {
+    display: block;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid #0002;
+    font-size: 8px;
+    background-color: #fff;
+    z-index: 999;
+    font-weight: 400;
+  }
+  
+  .menu-mobile .d-flex {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    height: 100%;
+  }
+  
+  .menu-item {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .menu-item .menu-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px; 
+  }
+  
+  .menu-item span {
+    display: block;
+    text-align: center;
+  }
+
+.active-menu-item {
+  color: rgba(255, 74, 23, 0.5) !important; 
+  
+}
+
+.active-menu-item .menu-icon {
+  filter: hue-rotate(180deg); 
+}
+.active-menu-item .menu-icon {
+  filter: brightness(0) saturate(100%) invert(44%) sepia(72%) saturate(1325%) hue-rotate(346deg) brightness(90%) contrast(86%);
+}
+
