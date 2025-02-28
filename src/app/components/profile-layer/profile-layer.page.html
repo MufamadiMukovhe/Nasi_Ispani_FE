@@ -1,14 +1,17 @@
 
 
+
   <div class="container justify-content-center align-items-center" style="margin-top: 5%;">
+
     <div class="box d-flex align-items-center" style="justify-content: space-between;">
       <ion-img src="../../../assets/images/Logo.svg" class="text-start"></ion-img>
       <div class="text-end d-flex" (click)="toggleDropdown()">
       <span class="name">M Mufamadi</span>
-      <ion-img src="../../../assets/images/Ellipse 2.png" class="img-size"></ion-img>
+      <!--Profile Image-->
+      <ion-img [src]="profileImage" class="img-size"></ion-img>
     </div>
     </div>
-    <div *ngIf="isDropdownVisible" class="dropdown-content text-end">
+    <div *ngIf="isDropdownVisible" class="dropdown-content position-absolute end-0 text-end">
       <div class="container">
         <span class="item" (click)="toProfile()">
           <ion-img src="../../../assets/images/profileIcon.svg" class="icon mb-2"></ion-img>

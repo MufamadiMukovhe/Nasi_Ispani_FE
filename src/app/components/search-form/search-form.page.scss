@@ -36,3 +36,58 @@ input:focus {
     margin-right: 10px !important;
 }
 
+.dropdown-content{
+    background-color: #fff;
+    color: rgba(42, 43, 42, 1);
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    padding: 10px 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+    width: 94%;
+    float: inline-end !important;
+    z-index: 9999!important;
+    height: auto !important;
+    position: absolute; 
+  }
+
+  .filter{
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .add-form-input{
+    border-radius: 2px;
+    border: 1px solid #999999;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    padding: 10px;  
+    width: 100%  ; 
+    margin-bottom: 10px;   
+    outline: none;
+    height: 40px;
+    }
+
+    .clear-button{
+        background-color: #FF0000;
+        border-radius: 2px;
+        height: 40px;
+        width: 50%;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+
+    }
+
+    .apply-button{
+        background-color: #007108;
+        border-radius: 2px;
+        height: 40px;
+        width: 50%;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+
+    }
+ 
+  
+

@@ -1,27 +1,44 @@
-.container-2{
+.container-2 {
     font-family: 'Poppins', sans-serif;
     height: auto !important;
     padding: 0 !important;
     margin: 0 !important;
-
 }
 
-.notif-msg{
+.notif-msg {
     font-size: 12px;
-    width: 10% !important;
+    word-wrap: break-word;
+    white-space: normal;
+    display: block;
 }
 
 .delete {
-margin-top: -20px;
-width: 20px;
-height: 20px;   
-float: inline-end !important;
+    margin-top: -20px;
+    width: 20px;
+    height: 20px;   
+    float: inline-end !important;
 }
 
 .time-sent {
     font-size: 12px;
     color: #FF4A17;
-    margin-left: 87%;
-    
+    text-align: right;
+    white-space: nowrap; /* Ensures time stays on one line */
 }
 
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.duration {
+    color: #FF4A17;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap; /* Prevents the time from wrapping */
+    align-self: flex-start; /* Keeps it aligned with the first line */
+}

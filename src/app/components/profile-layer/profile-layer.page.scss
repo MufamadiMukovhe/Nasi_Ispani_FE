@@ -3,6 +3,9 @@
     height: 45px;
     border: 1.5px solid #FF4A17;
     border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    
 }
 
 .name{
@@ -23,7 +26,8 @@
     border-radius: 4px;
     width: 130px !important;
     float: inline-end !important;
-    z-index: 1 !important;
+    z-index: 9999!important;
+    position: absolute;
 }
 
 .dropdown-content span{

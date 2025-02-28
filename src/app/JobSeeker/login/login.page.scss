@@ -29,3 +29,11 @@ ion-input[invalid] {
 ion-input[valid] {
   --border-color: #323232 !important; /* Force no color change for valid state */
 }
+.fgt { 
+  color: #FF4A17 !important;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative; 
+  top: -25px !important;
+}

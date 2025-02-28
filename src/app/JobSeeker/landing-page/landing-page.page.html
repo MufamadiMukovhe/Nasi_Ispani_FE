@@ -4,4 +4,147 @@
     <app-profile-layer></app-profile-layer>
 </div>
 <br/>
+
+  <div class="container justify-content-center align-items-center" style="margin-top: 5%;">
+
+    <!--<span class="find-job">Find a job</span>-->
+    <div style="margin-bottom: 2%;">
+      <app-search-form></app-search-form>
+    </div>
+  
+    <div style="margin-top: 5%; position: relative;">
+      <div class="d-flex mb-2">
+        <i class="bi bi-sliders design-line"></i>
+        <span class="job-class">Recent posted</span>
+      </div>
+      <div class="box-2 position-relative" *ngFor="let job of jobs" style="margin-bottom: 2%;" >
+        
+        <!-- Edit & Delete Icons -->
+        <div class="action-icons">
+          <!--<i class="bi bi-pencil-fill edit-icon"></i>
+          <div class="save-job">
+            <img src="../../../assets/images/bookmark_add.svg" alt="Save Job" width="15" height="15">
+          </div>-->
+        </div>
+  
+        <!-- Job Title -->
+        <div class="d-flex align-items-center">
+          <i class="bi bi-briefcase icon-color"></i> <!-- Fixed icon -->
+          <div class="vertical-line mx-3"></div>
+          <span class="job-name" (click)="toDetails()">{{ job.title }}</span>
+        </div>
+    
+        <!-- Company Name -->
+        <div class="d-flex align-items-center">
+          <ion-img src="../../../assets/images/Company.svg"></ion-img> <!-- Fixed image -->
+          <div class="vertical-line mx-3"></div>
+          <span class="company-name">{{ job.company }}</span>
+        </div>
+    
+       <!-- Location and Time -->
+<div class="d-flex align-items-center justify-content-between">
+  <!-- Left Side: Location -->
+  <div class="d-flex align-items-center">
+    <i class="bi bi-geo-alt-fill icon-color"></i> <!-- Fixed icon -->
+    <div class="vertical-line mx-3"></div>
+    <span class="company-name">{{ job.location }}</span>
+  </div>
+  <span class="job-time ms-auto">{{ job.time }}</span>
+</div>
+
+
+        <div class="row p-2">
+          <div class="col job-info">
+            {{ job.employmentCategories }}
+          </div>
+        
+          <div class="col job-info left2">
+            {{ job.experience_lvl }}
+          </div>
+        
+          <div class="col job-info left2">
+            {{ job.working_environment }}
+          </div>
+        
+          <div class="col job-info left2">
+            {{ job.salary }}
+          </div>
+        </div>
+        
+  
+      </div>
+
+      <div class="d-flex">
+        <button class="view-all ms-auto" (click)="toJobs()">View All</button>
+      </div>
+      <hr>
+      
+      <div class="d-flex mb-2">
+        <i class="bi bi-sliders design-line"></i>
+        <span class="job-class">Jobs Applied</span>
+      </div>
+
+      <div class="box-2 position-relative" *ngFor="let jobsApplied of jobsApplied" style="margin-bottom: 2%;" >
+        
+        <!-- Edit & Delete Icons -->
+        <div class="action-icons">
+          <!--<i class="bi bi-pencil-fill edit-icon"></i>-->
+          <img src="../../../assets/images/delete.svg" class="delete-icon">
+        </div>
+  
+        <!-- Job Title -->
+        <div class="d-flex align-items-center">
+          <i class="bi bi-briefcase icon-color"></i> <!-- Fixed icon -->
+          <div class="vertical-line mx-3"></div>
+          <span class="job-name" (click)="toDetails()">{{ jobsApplied.title }}</span>
+        </div>
+    
+        <!-- Company Name -->
+        <div class="d-flex align-items-center">
+          <ion-img src="../../../assets/images/Company.svg"></ion-img> <!-- Fixed image -->
+          <div class="vertical-line mx-3"></div>
+          <span class="company-name">{{ jobsApplied.company }}</span>
+        </div>
+    
+       <!-- Location and Time -->
+<div class="d-flex align-items-center justify-content-between">
+  <!-- Left Side: Location -->
+  <div class="d-flex align-items-center">
+    <i class="bi bi-geo-alt-fill icon-color"></i> <!-- Fixed icon -->
+    <div class="vertical-line mx-3"></div>
+    <span class="company-name">{{ jobsApplied.location }}</span>
+  </div>
+  <span class="job-time ms-auto">{{ jobsApplied.time }}</span>
+</div>
+
+
+        <div class="row p-2">
+          <div class="col job-info">
+            {{ jobsApplied.employmentCategories }}
+          </div>
+        
+          <div class="col job-info left2">
+            {{ jobsApplied.experience_lvl }}
+          </div>
+        
+          <div class="col job-info left2">
+            {{ jobsApplied.working_environment }}
+          </div>
+        
+          <div class="col job-info left2">
+            {{ jobsApplied.salary }}
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="d-flex">
+    <button class="view-all ms-auto" (click)="toJobsApplied()">View All</button>
+  </div>
+  
+    </div>
+
+<div class="spacer"></div>
+
+<app-menu></app-menu>
+
 </ion-content>

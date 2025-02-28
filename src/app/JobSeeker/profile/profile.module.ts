@@ -8,6 +8,8 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { MenuPageModule } from 'src/app/components/menu/menu.module';
+import { ProfileLayerPageModule } from 'src/app/components/profile-layer/profile-layer.module';
+
 
 @NgModule({
   imports: [
@@ -15,9 +17,10 @@ import { MenuPageModule } from 'src/app/components/menu/menu.module';
     FormsModule,
     IonicModule,
     ProfilePageRoutingModule,
-    MenuPageModule
+    MenuPageModule,ProfileLayerPageModule
     
   ],
-  declarations: [ProfilePage]
+  declarations: [ProfilePage],
+  exports:[ProfilePage]
 })
 export class ProfilePageModule {}

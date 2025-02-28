@@ -1,0 +1,19 @@
+
+
+<ion-content [fullscreen]="true">
+ <div class="container text-center align-content-center justify-content-center vh-100">
+  <p class="verify-header">Verification</p>
+  <p class="message">Please enter the verification code that was sent to   <span class="stard-email">{{ email }}</span>.</p>
+
+  <div class="d-flex text-center align-content-center justify-content-center" style="margin-bottom: 40px !important;">
+    <input class="otp-input" maxlength="1" (input)="moveFocus($event, 1)">
+    <input class="otp-input left" maxlength="1" (input)="moveFocus($event, 2)">
+    <input class="otp-input left" maxlength="1" (input)="moveFocus($event, 3)">
+    <input class="otp-input left" maxlength="1" (input)="moveFocus($event, 4)">
+  </div>
+  
+
+  <button type="submit" class="loginButton">Verify</button>
+
+ </div>
+</ion-content>

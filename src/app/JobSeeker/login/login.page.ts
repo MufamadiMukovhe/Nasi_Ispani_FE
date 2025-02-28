@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-login',
@@ -10,8 +13,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginPage implements OnInit {
 
    loginForm: FormGroup;
+   errorMessage: String = '';
+   isLoading: boolean = false;
+
  
-   constructor(private fb: FormBuilder) {
+   //Constant loging in details
+   private readonly validEmail = "mukovhemufamadi@gmail.com";
+   private readonly validPassword = "1027";
+
+
+   constructor(private fb: FormBuilder, 
+    private router: Router,
+    private spinner: NgxSpinnerService
+   ) {
      this.loginForm = this.fb.group({
        email: ['', [Validators.required, Validators.email]],
        password: ['', [Validators.required]],
@@ -19,6 +33,24 @@ export class LoginPage implements OnInit {
    }
 
   ngOnInit() {
+   
+  }
+
+  login() {
+
+    this.isLoading = true;
+    setTimeout(() => {
+      const { email, password } = this.loginForm.value;
+
+      if (email === this.validEmail && password === this.validPassword) {
+        this.errorMessage = ''; 
+        this.router.navigate(['/landing-page']);
+      } else {
+        this.errorMessage = 'Invalid credentials';
+      }
+
+      this.isLoading = false; 
+    }, 3000);
   }
 
 }

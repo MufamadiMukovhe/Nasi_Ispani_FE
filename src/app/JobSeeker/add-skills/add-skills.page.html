@@ -1,11 +1,19 @@
 <ion-content [fullscreen]="true" >
+    <!-- Show Spinner -->
+<div id="spinner" class="spinner-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
   <div class="container" style="margin-top: 5% !important;">
   <div class="box" style="margin-top: 5px;">
     <span class="header">Add Skills</span>
     <form [formGroup]="addSkills" class="mt-2">
       <input class="add-form-input" type="text"  placeholder="Enter skill" formControlName="skillName"><br>
-      <button class="button-save" type="submit">
+      <div class="d-flex justify-content-between w-100">
+        <button class="button-back" type="submit" routerLink="/profile">
+          Back</button>
+      <button class="button-save" type="submit" (click)="onSave()" [disabled]="addSkills.invalid">
         Save</button>
+        </div>
     </form>
   </div>
 </div>

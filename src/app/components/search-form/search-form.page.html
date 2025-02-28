@@ -1,9 +1,68 @@
 
  <div class="">
+    <!-- Show Spinner -->
+<div id="spinner" class="spinner-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
   <div class="d-flex form">
-  <input type="text" placeholder="search here....">
+  <input type="text" placeholder="search here...." [(ngModel)]="titleQuery" (input)="onSearch()" >
 
-  <button class="filter-button">
-    <img src="../../../assets/images/Filter-icon.svg" class="filter-icon">Filter</button>
+  <button class="filter-button" (click)="toggleFilter()">
+    <img src="../../../assets/images/Filter-icon.svg" class="filter-icon"> Filter
+  </button>
+  
+  <div class="dropdown-content" *ngIf="isOpened">
+    <div class="d-flex align-items-center">
+      <span class="filter">Filter</span>
+      <img src="../../../assets/images/close button.png" class="ms-auto" (click)="close()">
+    </div>
+    <hr>
+
+   <form [formGroup]="filterForm">  
+
+    <div class="d-flex gap-2">
+      <select class="add-form-input" formControlName="employment_type">
+        <option value="" disabled hidden selected>Employment Type</option>
+        <option>Contract</option>
+        <option>Permanent</option>
+        <option>Temporary</option>
+
+      </select>
+      <input placeholder="Location" formControlName="location" class="add-form-input" [(ngModel)]="locationQuery" ngModelOptions="{standalone: true}">
+    </div>
+
+    <div class="d-flex gap-2">
+      <select class="add-form-input" formControlName="experienceLevel">
+        <option value="" disabled hidden selected>Experience Level</option>
+        <option>Entry</option>
+        <option>Intermediate</option>
+        <option>Senior</option>
+
+      </select>
+
+      <select class="add-form-input" formControlName="environmentType">
+        <option value="" disabled hidden selected>Environment Type</option>
+        <option>Fulltime</option>
+        <option>Hybrid</option>
+        <option>Remote</option>
+
+      </select>
+    </div>
+    
+    <div class="d-flex gap-2">
+      <input class="add-form-input" type="Date"  placeholder="Start Date" formControlName="startDate">
+      <input class="add-form-input" type="Date"  placeholder="End Date" formControlName="endDate">
+    </div>
+
+    <div class="d-flex gap-2">
+     <button class="clear-button" (click)="clearForm()">Clear</button>
+     <button class="apply-button" (click)="onSearch()">Apply</button>
+
+    </div>
+    
+   </form>
+    
+
+  </div>
 </div>
  </div>

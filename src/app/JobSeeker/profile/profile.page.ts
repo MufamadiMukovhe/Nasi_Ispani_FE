@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 import { Camera, CameraSource, CameraResultType } from '@capacitor/camera';
 import { Router } from '@angular/router';
+import { ProfileService } from 'src/app/services/profile.service';
+
+
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -12,9 +17,17 @@ export class ProfilePage implements OnInit {
 
   
   bannerImage: string | null = null;
+  profileImage: string | null = null;
+
   
 
-  constructor(private actionSheetController: ActionSheetController, private router: Router) {}
+  constructor(private actionSheetController: ActionSheetController,
+     private router: Router, 
+     private alertController: AlertController, private profileService: ProfileService) {
+      this.profileService.profileImage$.subscribe(image => {
+        this.profileImage = image; 
+      });
+     }
 
   ngOnInit() {
     this.totalPages = Math.ceil(this.skills.length / this.skillsPerPage);
@@ -73,7 +86,7 @@ export class ProfilePage implements OnInit {
   '  Ionic, Cordova, Capacitor']
   
   // Function to present the camera/gallery options
-  async presentCameraOptions() {
+  async presentCameraOptions(imageType: 'banner' | 'profile') {
     const actionSheet = await this.actionSheetController.create({
       header: 'Choose an option',
       buttons: [
@@ -81,14 +94,14 @@ export class ProfilePage implements OnInit {
           text: 'Camera',
           icon: 'camera-outline',
           handler: () => {
-            this.openDeviceCamera();
+            this.openDeviceCamera(imageType);
           },
         },
         {
           text: 'Browse',
           icon: 'image-outline',
           handler: () => {
-            this.openGallery();
+            this.openGallery(imageType);
           },
         },
         {
@@ -102,7 +115,7 @@ export class ProfilePage implements OnInit {
     await actionSheet.present();
   }
 
-  async openDeviceCamera() {
+  async openDeviceCamera(imageType: 'banner' | 'profile') {
     try {
       const photo = await Camera.getPhoto({
         quality: 90,
@@ -111,13 +124,20 @@ export class ProfilePage implements OnInit {
         source: CameraSource.Camera, 
       });
 
-      this.bannerImage = photo.webPath ?? null;
+      if (photo.webPath) {
+        if (imageType === 'banner') {
+          this.bannerImage = photo.webPath;
+        } else if (imageType === 'profile') {
+          this.profileImage = photo.webPath;
+          this.profileService.setProfileImage(photo.webPath); // Save to service
+        }
+      }
     } catch (error) {
       console.error('Error accessing the camera:', error);
     }
   }
 
-  async openGallery() {
+  async openGallery(imageType: 'banner' | 'profile') {
     try {
       const photo = await Camera.getPhoto({
         quality: 90,
@@ -126,13 +146,18 @@ export class ProfilePage implements OnInit {
         source: CameraSource.Photos, 
       });
 
-      this.bannerImage = photo.webPath ?? null;
+      if (photo.webPath) {
+        if (imageType === 'banner') {
+          this.bannerImage = photo.webPath;
+        } else if (imageType === 'profile') {
+          this.profileImage = photo.webPath;
+          this.profileService.setProfileImage(photo.webPath); 
+        }
+      }
     } catch (error) {
       console.error('Error accessing the photo gallery:', error);
     }
   }
-
-
   //Pagination
     
   currentPage: number = 1;
@@ -166,4 +191,60 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['./login'])
   }
 
+  openDropdownIndex: number | null = null;
+
+  toggleDropdown(index: number) {
+    if (this.openDropdownIndex === index) {
+      this.openDropdownIndex = null; 
+    } else {
+      this.openDropdownIndex = index; 
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeDropdownOnClick(event: MouseEvent) {
+    const clickedInside = (event.target as HTMLElement).closest('.box-2');
+    if (!clickedInside) {
+      this.openDropdownIndex = null; 
+    }
+  }
+
+  //Delete Education
+
+
+  async presentDeleteAlert(index: number, type: 'education' | 'experience') {
+    const alert = await this.alertController.create({
+      header: 'Confirm Delete',
+      message: 'Are you sure you want to delete this item?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel'
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            if (type === 'education'){
+              this.deleteEducation(index);
+            }
+            else if(type === 'experience'){
+              this.deleteExperience(index);
+            }
+          }
+          
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  deleteEducation(index: number) {
+    this.educations.splice(index, 1); 
+  }
+
+  deleteExperience(index: number) {
+    this.experiences.splice(index, 1); 
+  }
+  
 }

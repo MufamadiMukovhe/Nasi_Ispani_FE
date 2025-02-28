@@ -1,13 +1,104 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>job-details</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">job-details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <!--Profile Layer-->
+  <app-profile-layer></app-profile-layer>
+
+    <!-- Show Spinner -->
+  <div id="spinner" class="spinner-overlay" *ngIf="isLoading">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="container">
+    <div class="box" style="margin-top: 5%;">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-briefcase icon-color"></i> <!-- Fixed icon -->
+        <div class="vertical-line mx-3"></div>
+        <span class="job-name">Java software engineer</span>
+      </div>
+  
+      <!-- Company Name -->
+      <div class="d-flex align-items-center">
+        <ion-img src="../../../assets/images/Company.svg"></ion-img> <!-- Fixed image -->
+        <div class="vertical-line mx-3"></div>
+        <span class="company-name">Matjomane Construction</span>
+      </div>
+  
+      <!-- Location -->
+      <div class="d-flex align-items-center">
+        <i class="bi bi-geo-alt-fill icon-color"></i> <!-- Fixed icon -->
+        <div class="vertical-line mx-3"></div>
+        <span class="company-name">Pretoria, Gauteng, SA</span>
+      </div>
+
+      <div class="row p-2">
+        <div class="col job-info">
+          {{ employmentCategories }}
+        </div>
+      
+        <div class="col job-info left2">
+          {{ experience_lvl }}
+        </div>
+      
+        <div class="col job-info left2">
+          {{ working_environment }}
+        </div>
+      
+        <div class="col job-info left2">
+          {{ salary }}
+        </div>
+      </div>
+
+      <hr>
+
+      <span class="job-summary">Job Summary</span><br/>
+      <span class="summary">{{summary}}</span>
+
+      <p class="job-summary" style="margin-top: 3%; margin-bottom: 1%;">Key Responsibility</p>
+      <div>
+        <ul>
+          <li>Develop, test, and deploy high-quality Java applications, ensuring performance, reliability, and scalability.</li>
+          <li>Write clean, maintainable, and efficient code.</li>
+          <li>Participate in designing software solutions based on requirements.</li>
+          <li>Develop technical specifications and architecture.</li>
+          <li>Integrate APIs, libraries, and third-party services as needed.</li>
+        </ul>
+      </div>
+
+
+      <p class="job-summary" style="margin-top: 3%; margin-bottom: 1%;">Skills and Qualifications</p>
+      <div>
+        <ul>
+          <li>Bachelor’s degree in Computer Science, Software Engineering, or a related field.</li>
+          <li>Strong proficiency in Java and related frameworks such as Spring or Spring Boot.</li>
+          <li>Experience with RESTful APIs and microservices architecture.</li>
+          <li>Proficiency in databases, both relational (e.g., MySQL, PostgreSQL) and NoSQL (e.g., MongoDB, Cassandra).</li>
+          <li>Familiarity with front-end technologies such as HTML, CSS, JavaScript (Angular or React is a plus).</li>
+          <li>Understanding of version control systems like Git.</li>
+          <li>Experience with cloud platforms (AWS, Azure, or GCP) is a plus.</li>
+
+        </ul>
+      </div>
+
+
+      
+      <p class="job-summary" style="margin-top: 3%; margin-bottom: 1%;">Benefits</p>
+      <div>
+        <ul>
+          <li>Competitive salary and performance bonuses.</li>
+          <li>Opportunities for professional growth and skill development.</li>
+          <li>Health insurance and wellness benefits.</li>
+          <li>Flexible working hours and remote work options.</li>
+          <li>Inclusive and collaborative work environment.</li>
+        </ul>
+      </div>
+
+
+      <button class="apply-button" (click)="applyJob()">Apply
+      </button>
+    </div>
+  </div>
+  <div class="spacer"></div>
+
+  <app-menu></app-menu>
 </ion-content>

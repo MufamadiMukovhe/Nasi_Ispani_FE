@@ -20,19 +20,32 @@
 
   }
 
+  .camera-image2 {
+    position: absolute; 
+    top: 38%;
+    left: 29% !important; 
+    transform: translate(50%, -50%); 
+    height: auto; 
+    width: 30px;
+
+  }
+
   .card{
     width: 100%;
     border: none;
     border-radius: 0px;
     height: auto;
   }
-  .profile-image{
-    border: 4px solid #FF4A17;
-    border-radius: 50% !important;
-    margin-top: -20%;
-    z-index: 999;
-    transform: translateX(10%); 
-  }
+ .profile-image {
+  width: 130px; 
+  height: 130px; 
+  object-fit: cover; 
+  border: 4px solid #FF4A17;
+  border-radius: 50% !important;
+  margin-top: -20%;
+  z-index: 999;
+  transform: translateX(10%);
+}
 
   .intro{
     font-family: 'Poppins', sans-serif;
@@ -121,10 +134,78 @@
     border-color: #e9ecef;
     cursor: not-allowed; 
   }
-  
-  .pagination {
-    padding: 10px 0; 
-  }
+
+  .add-btn {
+    background-color: #FF4A17; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 30px;
+    font-family: 'Poppins', sans-serif !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.options-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: #FF4A17;
+  transition: color 0.3s ease-in-out;
+}
+
+.dropdown-content{
+  background-color: #fff;
+  color: rgba(42, 43, 42, 1);
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  margin-top: 15px;
+  border-radius: 4px;
+  width: 130px !important;
+  float: inline-end !important;
+  z-index: 9999!important;
+  height: 75px !important;
+  position: absolute; 
+  margin-left: 58%;
+
+}
+
+.dropdown-content span{
+  float:inline-start;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+}
+
+
+
+.item {
+  display: flex;
+  align-items: center;
+  float: inline-start !important;
+  color: #000;
+}
+
+.icon {
+  width: 20px;
+  height: 20px; 
+  float: inline-end !important;
+  margin-right: 15px !important;
+}
+
+.documents-uploaded{
+  color: #066839;
+  font-size: 15px;
+}
+
+
+
+
+
+
   
   
   

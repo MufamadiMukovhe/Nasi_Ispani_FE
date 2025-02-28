@@ -1,6 +1,10 @@
 
 
 <ion-content [fullscreen]="true" >
+      <!-- Show Spinner -->
+<div id="spinner" class="spinner-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
   <div class="container" style="margin-top: 5% !important;">
   <div class="box" style="margin-top: 5px;">
     <span class="header">Add Experience</span>
@@ -10,8 +14,13 @@
       <input class="add-form-input" type="text"  placeholder="Location" formControlName="location"><br>
       <input class="add-form-input" type="Date"  placeholder="Start Date" formControlName="startDate"><br>
       <input class="add-form-input" type="Date"  placeholder="End Date" formControlName="endDate">
-      <button class="button-save" type="submit">
+      
+      <div class="d-flex justify-content-between w-100">
+        <button class="button-back" type="submit" routerLink="/profile">
+          Back</button>
+      <button class="button-save" type="submit" (click)="onSave()" [disabled]="addExperience.invalid">
         Save</button>
+      </div>
     </form>
   </div>
 </div>

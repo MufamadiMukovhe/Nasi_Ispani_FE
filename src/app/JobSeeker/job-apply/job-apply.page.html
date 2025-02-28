@@ -1,0 +1,129 @@
+
+
+<ion-content [fullscreen]="true">
+
+<!-- Show Spinner -->
+<div id="spinner" class="spinner-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
+
+  <div class="container">
+    <p class="apply-job text-center justify-content-center">Apply for {{job_name}}</p>
+    <div class="box">
+
+      <nav class="mt-3 mb-2">
+        <div class="d-flex">
+          <span class="nav-item" [class.active]="currentForm === 'contact'" (click)="toggleForms('contact')">Contact</span>
+          <span class="nav-item left" [class.active]="currentForm === 'education'" (click)="toggleForms('education')">Education</span>
+          <span class="nav-item left" [class.active]="currentForm === 'documents'" (click)="toggleForms('documents')">Documents</span>
+          <span class="nav-item left" [class.active]="currentForm === 'experience'" (click)="toggleForms('experience')">Experience</span>
+        </div>
+      </nav>
+
+      <!--Landing-->
+
+      <div *ngIf="currentForm==='contact'" style="margin-top: 5%;">
+        <form [formGroup]="contactForm">
+          <input class="add-form-input" type="text"  placeholder="FullName" formControlName="fullName"><br>
+          <input class="add-form-input" type="text"  placeholder="Email Address" formControlName="email"><br>
+          <input class="add-form-input" type="text"  placeholder="Location" formControlName="location"><br>
+          <input class="add-form-input" type="text"  placeholder="Mobile Number" formControlName="mobileNumber"><br>
+          <button class="button-continue" (click)="toggleForms('education')" [disabled]="contactForm.invalid"
+           >Continue</button>
+        </form>
+
+      </div>
+
+         <!--Education-->
+
+         <div *ngIf="currentForm==='education'" style="margin-top: 5%;">
+          <form [formGroup]="educationForm" class="mt-2">
+            <input class="add-form-input" type="text"  placeholder="Qualification name" formControlName="qualificationName"><br>
+            <select class="add-form-input" placeholder="NQF Level" formControlName="level">
+              <option value="" selected>NQF Level</option>
+              <option>Diploma NQF6</option>
+              <option>Bachelor's degree NQF7</option>
+              <option>Honors NQF6</option>
+              <option>Masters NQF6</option>
+              <option>PHD NQF6</option>
+  
+            </select><br>
+  
+            <input class="add-form-input" type="text"  placeholder="Location" formControlName="location"><br>
+            <input class="add-form-input" type="Date"  placeholder="Start Date" formControlName="startDate"><br>
+            <input class="add-form-input" type="Date"  placeholder="End Date" formControlName="endDate">
+            <button class="button-continue" type="submit" (click)="toggleForms('documents')">
+              Continue</button>
+          </form>
+  
+        </div>
+         <!--Experience-->
+
+         <div *ngIf="currentForm==='experience'" style="margin-top: 5%;">
+          <form [formGroup]="experienceForm" class="mt-2">
+
+            <input class="add-form-input" type="text"  placeholder="Occupation" formControlName="occupation"><br>
+            <input class="add-form-input" type="text"  placeholder="Name of the organisation" formControlName="organisation"><br>
+            <input class="add-form-input" type="text"  placeholder="Location" formControlName="location"><br>
+            <input class="add-form-input" type="Date"  placeholder="Start Date" formControlName="startDate"><br>
+            <input class="add-form-input" type="Date"  placeholder="End Date" formControlName="endDate">
+            <button class="button-continue" type="submit" (click)="apply()">
+                    Apply</button>
+          </form>
+  
+        </div>
+
+   <!-- Documents -->
+<div *ngIf="currentForm === 'documents'" style="margin-top: 5%;">
+
+  <!-- Resume Upload -->
+  <p class="mb-2 names">Resume</p>
+  <div class="card2" (click)="resumeInput.click()" style="margin-bottom: 2% !important;">
+    <div class="d-flex align-items-center">
+      <span class="me-3">{{ uploadedResume || 'No file uploaded' }}</span>
+      <ion-img src="../../../assets/images/Document Upload.svg" class="ms-auto"></ion-img>
+      <input 
+        #resumeInput 
+        type="file" 
+        (change)="onResumeSelected($event)" 
+        style="display: none;" 
+        formControlName="resumeDocument"
+      />
+    </div>
+  </div>
+
+<!-- Qualifications Upload (Multiple Files) -->
+<p class="mb-2 names">Qualifications</p>
+<div class="card2" (click)="qualificationInput.click()" style="margin-bottom: 2% !important;">
+  <div class="d-flex align-items-center">
+    <span class="me-3">
+      <ng-container *ngIf="uploadedQualifications.length > 0; else noFiles">
+        <div *ngFor="let file of uploadedQualifications" class="document-name">
+          {{ file.name }}
+        </div>
+      </ng-container>
+      <ng-template #noFiles>No file uploaded</ng-template>
+    </span>
+    <ion-img src="../../../assets/images/Document Upload.svg" class="ms-auto"></ion-img>
+    <input 
+      #qualificationInput 
+      type="file" 
+      (change)="onQualificationSelected($event)" 
+      style="display: none;" 
+      formControlName="qualificationDocuments"
+      multiple
+    />
+  </div>
+</div>
+
+<button class="button-continue" type="submit" (click)="toggleForms('experience')">
+  Continue</button>
+</div>
+    </div>
+  </div>
+  
+  
+  <div class="spacer"></div>
+
+  <app-menu></app-menu>
+</ion-content>

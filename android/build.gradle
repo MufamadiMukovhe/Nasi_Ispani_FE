@@ -1,0 +1,21 @@
+// build.gradle (Project-level)
+
+buildscript {
+    repositories {
+        google()  // Google's Maven repository
+        mavenCentral()  // Maven Central repository
+        jcenter()  // JCenter repository (optional, deprecated but still used in some projects)
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.2'  // Make sure this matches your version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"  // Make sure this matches your version
+    }
+}
+
+allprojects {
+    repositories {
+        google()  // Google's Maven repository
+        mavenCentral()  // Maven Central repository
+        jcenter()  // JCenter repository (optional)
+    }
+}

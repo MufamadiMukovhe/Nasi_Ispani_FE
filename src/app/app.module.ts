@@ -8,10 +8,12 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule, ReactiveFormsModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule, ReactiveFormsModule, FormsModule, NgxSpinnerModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

@@ -77,6 +77,22 @@ const routes: Routes = [
     path: 'add-document',
     loadChildren: () => import('./JobSeeker/add-document/add-document.module').then( m => m.AddDocumentPageModule)
   },
+  {
+    path: 'job-apply',
+    loadChildren: () => import('./JobSeeker/job-apply/job-apply.module').then( m => m.JobApplyPageModule)
+  },
+  {
+    path: 'verification',
+    loadChildren: () => import('./JobSeeker/verification/verification.module').then( m => m.VerificationPageModule)
+  },
+  {
+    path: 'job-applied',
+    loadChildren: () => import('./JobSeeker/job-applied/job-applied.module').then( m => m.JobAppliedPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./JobSeeker/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
  
 ];
 

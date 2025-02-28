@@ -1,26 +1,46 @@
 
 
 <ion-content [fullscreen]="true" >
+  <!-- Show Spinner -->
+<div id="spinner" class="spinner-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
   <div class="container" style="margin-top: 5% !important;">
   <div class="box" style="margin-top: 5px;">
     <span class="header">Add Education</span>
         <form [formGroup]="addEducation" class="mt-2">
           <input class="add-form-input" type="text"  placeholder="Qualification name" formControlName="qualificationName"><br>
-          <select class="add-form-input" placeholder="NQF Level" formControlName="level">
+          <div
+          *ngIf="education['qualificationName'].invalid && (education['qualificationName'].dirty || education['qualificationName'].touched)"
+          class="alert alert-danger">
+          <span *ngIf="education['qualificationName'].errors?.['required']" >Full Name is required</span>
+        </div>
+
+
+
+          <input class="add-form-input" type="text"  placeholder="Institution" formControlName="institution"><br>
+          <input class="add-form-input" type="number"  placeholder="NQF Level" formControlName="level" min="1" max="10"><br>
+          <!--<select class="add-form-input" placeholder="NQF Level" formControlName="level">
             <option value="" selected>NQF Level</option>
             <option>Diploma NQF6</option>
             <option>Bachelor's degree NQF7</option>
-            <option>Honors NQF6</option>
-            <option>Masters NQF6</option>
-            <option>PHD NQF6</option>
+            <option>Honors NQF8</option>
+            <option>Masters NQF9</option>
+            <option>PHD NQF10</option>
 
-          </select><br>
-
+          </select><br>-->
           <input class="add-form-input" type="text"  placeholder="Location" formControlName="location"><br>
           <input class="add-form-input" type="Date"  placeholder="Start Date" formControlName="startDate"><br>
           <input class="add-form-input" type="Date"  placeholder="End Date" formControlName="endDate">
-          <button class="button-save" type="submit">
-            Save</button>
+
+          <div class="d-flex justify-content-between w-100">
+            <button class="button-back" type="submit" routerLink="/profile">
+              Back</button>
+            <button class="button-save" type="submit" (click)="onSave()" [disabled]="addEducation.invalid">Save</button>
+        </div>
+        
+         
+        
         </form>
        
   </div>
