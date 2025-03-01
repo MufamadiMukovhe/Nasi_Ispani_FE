@@ -12,61 +12,89 @@ import { AlertController } from '@ionic/angular';
 export class AddDocumentPage implements OnInit {
   isLoading: boolean = false;
   addDocument: FormGroup;
-  
+
   uploadedResumeFileName: string | null = null;
   uploadedQualificationFileName: string | null = null;
   uploadedGrade12: string | null = null;
   uploadedOtherDoc: string | null = null;
 
-  constructor(private fb: FormBuilder, private alertController: AlertController, 
+  constructor(
+    private fb: FormBuilder,
+    private alertController: AlertController,
     private router: Router
   ) {
     this.addDocument = this.fb.group({
       resume: ['', Validators.required],
       qualification: ['', Validators.required],
       grade12: ['', Validators.required],
-      otherDocuments: ['', Validators.required]
+      otherDocuments: ['', Validators.required],
     });
   }
-  
+
   ngOnInit() {}
 
-  onResumeFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.uploadedResumeFileName = input.files[0].name;
-    }
+  async onResumeFileSelected(event: Event): Promise<void> {
+    await this.validateFile(event, 'resume');
   }
 
-  onQualificationFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.uploadedQualificationFileName = input.files[0].name;
-    }
+  async onQualificationFileSelected(event: Event): Promise<void> {
+    await this.validateFile(event, 'qualification');
   }
 
-  onGrade12FileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.uploadedGrade12 = input.files[0].name;
-    }
+  async onGrade12FileSelected(event: Event): Promise<void> {
+    await this.validateFile(event, 'grade12');
   }
 
-
-  onOtherDocumentFileSelected(event: Event): void {
+  async onOtherDocumentFileSelected(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;
-    
     if (input.files) {
       if (input.files.length > 3) {
-        alert("You can only upload up to 3 documents.");
-        input.value = ''; 
+        await this.showAlert('Upload Limit Exceeded', 'You can only upload up to 3 documents.');
+        input.value = '';
         return;
       }
+
+      const invalidFiles = Array.from(input.files).filter(file => !this.isValidFileType(file));
+      if (invalidFiles.length > 0) {
+        await this.showAlert('Invalid File Type', 'Only .pdf and .docx files are allowed.');
+        input.value = '';
+        return;
+      }
+
       this.uploadedOtherDoc = Array.from(input.files).map(file => file.name).join(', ');
     }
   }
-  
 
+  private async validateFile(event: Event, field: 'resume' | 'qualification' | 'grade12'): Promise<void> {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      if (!this.isValidFileType(file)) {
+        await this.showAlert('Invalid File Type', 'Only .pdf and .docx files are allowed.');
+        input.value = ''; // Reset the file input
+        return;
+      }
+
+      if (field === 'resume') this.uploadedResumeFileName = file.name;
+      if (field === 'qualification') this.uploadedQualificationFileName = file.name;
+      if (field === 'grade12') this.uploadedGrade12 = file.name;
+    }
+  }
+
+  private isValidFileType(file: File): boolean {
+    const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    return allowedTypes.includes(file.type);
+  }
+
+  private async showAlert(header: string, message: string): Promise<void> {
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
 
   // Save Function
   async onSave() {
@@ -86,7 +114,6 @@ export class AddDocumentPage implements OnInit {
         alert.dismiss();
         this.router.navigate(['/add-documents']);
       }, 2000);
-      
     }, 3000);
   }
 }

@@ -93,6 +93,14 @@ const routes: Routes = [
     path: 'reset-password',
     loadChildren: () => import('./JobSeeker/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
+  {
+    path: 'recruiter-jobs',
+    loadChildren: () => import('./Recruiter/recruiter-jobs/recruiter-jobs.module').then( m => m.RecruiterJobsPageModule)
+  },
+  {
+    path: 'add-job',
+    loadChildren: () => import('./Recruiter/add-job/add-job.module').then( m => m.AddJobPageModule)
+  },
  
 ];
 
