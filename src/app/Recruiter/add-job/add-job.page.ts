@@ -25,7 +25,9 @@ export class AddJobPage implements OnInit {
     summary:['', Validators.required],
     responsibility: ['', Validators.required],
     skills_Qualification:['', Validators.required],
-    benefits:['', Validators.required]
+    benefits:['', Validators.required],
+    new: ['', Validators.required]
+
   })
   }
 
