@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -10,10 +11,10 @@ import { AlertController } from '@ionic/angular';
 })
 export class AddJobPage implements OnInit {
 
-  
+  isLoading: boolean = false;
   postJob: FormGroup;
 
-  constructor(private alertController: AlertController, private fb: FormBuilder) { 
+  constructor(private alertController: AlertController, private fb: FormBuilder, private router: Router) { 
   this.postJob = this.fb.group({
     name:['', Validators.required],
     company:['', Validators.required],
@@ -25,8 +26,7 @@ export class AddJobPage implements OnInit {
     summary:['', Validators.required],
     responsibility: ['', Validators.required],
     skills_Qualification:['', Validators.required],
-    benefits:['', Validators.required],
-    new: ['', Validators.required]
+    benefits:['', Validators.required]
 
   })
   }
@@ -34,4 +34,44 @@ export class AddJobPage implements OnInit {
   ngOnInit() {
   }
 
+  currentForm: string = 'details';
+
+  toggleForms(form: string) {
+    this.currentForm = form;
+  }
+
+  onSubmit() {
+    if (this.postJob.valid) {
+      this.isLoading = true;
+  
+      setTimeout(async () => {
+        this.isLoading = false;
+  
+        const jobName = this.postJob.value.name; // Get the job name
+  
+        const alert = await this.alertController.create({
+          header: 'Success',
+          message: `${jobName} position was successfully posted.`,
+          buttons: [{
+            text: 'OK',
+            handler: () => {
+              this.router.navigate(['/recruiter-jobs']);
+            }
+          }]
+        });
+  
+        await alert.present();
+      }, 3000);
+    } 
+  }
+  
+ /* async showValidationError() {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: 'Please fill in all required fields before posting the job.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }*/
+  
 }

@@ -1,13 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>add-job</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">add-job</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <p class="apply-job text-center justify-content-center">Add job</p>
+
+  <div id="spinner" class="spinner-overlay" *ngIf="isLoading">
+    <div class="spinner"></div>
+  </div>
+  <div class="container"  style="margin-top: 5% !important;">
+    <div class="box" >
+    <form [formGroup]="postJob" style="margin-top: 2% !important;">
+
+      <div *ngIf="currentForm === 'details'">
+      <input class="add-form-input" type="text"  placeholder="Position Name" formControlName="name"><br>
+      <input class="add-form-input" type="text"  placeholder="Company Name" formControlName="company"><br>
+      <input class="add-form-input" type="text"  placeholder="Location" formControlName="location"><br>
+      <select class="add-form-input" formControlName="employmentType">
+        <option value="" disabled hidden selected>Employment Type</option>
+        <option>Contract</option>
+        <option>Permanent</option>
+        <option>Temporary</option>
+
+      </select><br>
+      <select class="add-form-input" formControlName="expLevel">
+        <option value="" disabled hidden selected>Experience Level</option>
+        <option>Entry</option>
+        <option>Intermediate</option>
+        <option>Senior</option>
+
+      </select><br>
+      <select class="add-form-input" formControlName="environmentType">
+        <option value="" disabled hidden selected>Environment Type</option>
+        <option>Fulltime</option>
+        <option>Hybrid</option>
+        <option>Remote</option>
+
+      </select>
+      <input class="add-form-input" type="text"  placeholder="Salary" formControlName="salary"><br>
+      <button class="button-continue" (click)="toggleForms('summary')">Continue</button>
+    </div>
+
+    <div *ngIf="currentForm === 'summary'">
+      <textarea placeholder="Job Summary" class="add-form-input" formControlName="summary"></textarea>
+      <textarea placeholder="Key Responsibility" class="add-form-input" formControlName="responsibility"></textarea>
+      <button class="button-continue" (click)="toggleForms('skills')">Continue</button>
+    </div>
+
+
+    <div *ngIf="currentForm === 'skills'">
+      <textarea placeholder="Skills & Qualification" class="add-form-input" formControlName="skills_Qualification"></textarea>
+      <textarea placeholder="Benefits" class="add-form-input" formControlName="benefits"></textarea>
+      <button class="button-continue" (click)="onSubmit()">Submit</button>
+    </div>
+
+
+    </form>
+  </div>
+  </div>
 </ion-content>
