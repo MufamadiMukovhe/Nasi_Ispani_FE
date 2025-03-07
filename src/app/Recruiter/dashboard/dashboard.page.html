@@ -65,7 +65,7 @@
         <div class="info d-flex flex-column w-100" style="margin-left: 10px;" >
           <div class="d-flex align-items-center w-100">
             <span class="name">{{ message.name }}</span>
-            <div class="date ms-auto" >{{ message.role }}</div>
+            <div class="date ms-auto" (click)="toJob()">{{ message.role }}</div>
           </div>
           <hr class="line">
           <span class="last-msg-name">{{ message.introTitle }} </span> 

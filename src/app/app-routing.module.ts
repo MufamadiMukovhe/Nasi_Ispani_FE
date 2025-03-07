@@ -117,6 +117,10 @@ const routes: Routes = [
     path: 'recruiter-menu',
     loadChildren: () => import('./components/recruiter-menu/recruiter-menu.module').then( m => m.RecruiterMenuPageModule)
   },
+  {
+    path: 'applications',
+    loadChildren: () => import('./Recruiter/applications/applications.module').then( m => m.ApplicationsPageModule)
+  },
  
 ];
 
