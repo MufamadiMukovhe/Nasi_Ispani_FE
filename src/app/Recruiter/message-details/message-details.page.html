@@ -10,7 +10,6 @@
         <div class="d-flex align-items-center w-100">
           <span class="name">{{ name }}</span>
           <div class="date ms-auto">
-            <!-- Click on the 3 dots to show the action sheet -->
             <i class="bi bi-three-dots-vertical" (click)="presentActionSheet()"></i>
           </div>
         </div>
@@ -19,4 +18,22 @@
       </div>
     </div>
   </div>
+
+
+<!-- Send message -->
+<div class="menu-mobile bottom-0 w-100">
+  <div class="d-flex align-items-center w-100">
+    <img src="../../../assets/images/upload_file.png" alt="Upload File" (click)="openFilePicker()">
+    <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+    
+    <img src="../../../assets/images/add_a_photo.png" style="margin-left: 10px;" (click)="openCamera()">
+    <div class="vertical-line" style="margin-left: 10px;"></div>
+
+    <input type="text" placeholder="Write a message here ......" [(ngModel)]="uploadedFileName">
+
+    <img src="../../../assets/images/button send.png" class="send-button">
+  </div>
+</div>
+
+
 </ion-content>

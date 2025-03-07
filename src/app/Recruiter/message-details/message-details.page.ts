@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { AlertController, ActionSheetController, LoadingController } from '@ionic/angular';
 
 @Component({
@@ -10,12 +12,14 @@ import { AlertController, ActionSheetController, LoadingController } from '@ioni
 })
 export class MessageDetailsPage implements OnInit {
 
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
+  uploadedFileName: string = '';
+
   isLoading: boolean = false;
   constructor(
     private router: Router,
     private alertController: AlertController,
     private actionSheetController: ActionSheetController,
-    private loadingController: LoadingController // Import LoadingController
   ) { }
 
   ngOnInit() {
@@ -101,6 +105,37 @@ export class MessageDetailsPage implements OnInit {
   }
   
 
+  //Upload document 
+  openFilePicker() {
+    this.fileInput.nativeElement.click(); 
+  }
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const selectedFile = input.files[0];
+      this.uploadedFileName = selectedFile.name;
+      console.log('Selected file:', selectedFile.name);
+    }
+  }
+
+
+  // Open Camera and Capture Image
+  async openCamera() {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        resultType: CameraResultType.Uri,
+        source: CameraSource.Camera
+      });
+
+      const imagePath = image.path || image.webPath || 'captured_image.jpg';
+      this.uploadedFileName = imagePath.split('/').pop() || 'captured_image.jpg';
+      console.log('Captured Image:', this.uploadedFileName);
+    } catch (error) {
+      console.error('Camera Error:', error);
+    }
+  }
   toProfile() {
     this.router.navigate(['/profile']);
   }

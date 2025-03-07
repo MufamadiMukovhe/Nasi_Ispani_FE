@@ -109,6 +109,14 @@ const routes: Routes = [
     path: 'message-details',
     loadChildren: () => import('./Recruiter/message-details/message-details.module').then( m => m.MessageDetailsPageModule)
   },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./Recruiter/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'recruiter-menu',
+    loadChildren: () => import('./components/recruiter-menu/recruiter-menu.module').then( m => m.RecruiterMenuPageModule)
+  },
  
 ];
 

@@ -35,15 +35,28 @@
     </a>
     <a
       class="menu-item"
-      routerLink="/applications"
+      routerLink="/messages"
       routerLinkActive="active-menu-item"
     >
       <img
-        [src]="isActive('/applications') ? '../../../assets/images/ApplicationsActiv.svg' : '../../../assets/images/Application_Icon.svg'"
+        [src]="isActive('/messages') ? '../../../assets/images/Messages.png' : '../../../assets/images/Messages.png'"
         class="menu-icon"
       />
-      <span class="a-text">Applications</span>
+      <span class="a-text">Messages</span>
     </a>
+
+
+    <a
+    class="menu-item"
+    routerLink="/profile"
+    routerLinkActive="active-menu-item"
+  >
+    <img
+      [src]="isActive('/profile') ? '../../../assets/images/Profile-menu.png' : '../../../assets/images/Profile-menu.png'"
+      class="menu-icon"
+    />
+    <span class="a-text">Profile</span>
+  </a>
   </div>
 </div>
 

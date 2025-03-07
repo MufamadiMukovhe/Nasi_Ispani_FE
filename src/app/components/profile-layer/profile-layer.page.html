@@ -3,29 +3,21 @@
 
   <div class="container justify-content-center align-items-center" style="margin-top: 5%;">
 
-    <div class="box d-flex align-items-center" style="justify-content: space-between;">
-      <ion-img src="../../../assets/images/Logo.svg" class="text-start"></ion-img>
-      <div class="text-end d-flex" (click)="toggleDropdown()">
-      <span class="name">M Mufamadi</span>
-      <!--Profile Image-->
-      <ion-img [src]="profileImage" class="img-size"></ion-img>
-    </div>
-    </div>
-    <div *ngIf="isDropdownVisible" class="dropdown-content position-absolute end-0 text-end">
-      <div class="container">
-        <span class="item" (click)="toProfile()">
-          <ion-img src="../../../assets/images/profileIcon.svg" class="icon mb-2"></ion-img>
-          Profile
-        </span><br/>
-        <span class="item" >
-          <ion-img src="../../../assets/images/Settings.svg" class="icon mb-2"></ion-img>
-          Settings
-        </span><br/>
-        <span class="item" (click)="logout()">
-          <ion-img src="../../../assets/images/LogoutIcon.svg" class="icon"></ion-img>
-          Logout
-        </span>
+    <div class="box d-flex align-items-center justify-content-between">
+      <!-- Profile Image & Details -->
+      <div class="d-flex align-items-center">
+        <ion-img [src]="profileImage" class="img-size"></ion-img>
+        
+        <div class="ms-2">
+          <span class="d-block userName">Mufamadi M</span>
+          <span class="d-block text-muted date">10 Feb 2025</span>
+        </div>
       </div>
-      
+    
+      <!-- Notification Icon -->
+       <img src="../../../assets/images/Notification_icon.svg" routerLink="/notifications">
     </div>
+    
+    
+   
   </div>

@@ -1,0 +1,65 @@
+<div class="menu-mobile box mt-5">
+  <div class="d-flex">
+    <a
+      class="menu-item"
+      routerLink="/dashboard"
+      routerLinkActive="active-menu-item"
+    >
+      <img
+        [src]="isActive('/dashboard') ? '../../../assets/images/HomeActive.svg' : '../../../assets/images/Home.svg'"
+        class="menu-icon"
+      />
+      <span class="a-text">Home</span>
+    </a>
+
+    <a
+    class="menu-item"
+    routerLink="/messages"
+    routerLinkActive="active-menu-item"
+  >
+    <img
+      [src]="isActive('/messages') ? '../../../assets/images/Messages.png' : '../../../assets/images/Messages.png'"
+      class="menu-icon"
+    />
+    <span class="a-text">Messages</span>
+  </a>
+  <a
+  class="menu-item"
+  routerLink="/add-job"
+  routerLinkActive="active-menu-item"
+>
+  <img
+    [src]="isActive('/add-job') ? '../../../assets/images/PlusSquare.png' : '../../../assets/images/PlusSquare.png'"
+    class="add-img"
+  />
+  <span class="a-text">Create Job</span>
+</a>
+    <a
+      class="menu-item"
+      routerLink="#"
+      routerLinkActive="active-menu-item"
+    >
+      <img
+        [src]="isActive('/jobs') ? '../../../assets/images/JobsActive.svg' : '../../../assets/images/Jobs_Icon.svg'"
+        class="menu-icon"
+      />
+      <span class="a-text">My Jobs</span>
+    </a>
+ 
+
+
+    <a
+    class="menu-item"
+    routerLink="#"
+    routerLinkActive="active-menu-item"
+  >
+    <img
+      [src]="isActive('/profile') ? '../../../assets/images/Profile-menu.png' : '../../../assets/images/Profile-menu.png'"
+      class="menu-icon"
+    />
+    <span class="a-text">Profile</span>
+  </a>
+  </div>
+</div>
+
+
