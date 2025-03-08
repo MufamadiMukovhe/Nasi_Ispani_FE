@@ -36,20 +36,20 @@
 
       </select>
       <input class="add-form-input" type="text"  placeholder="Salary" formControlName="salary"><br>
-      <button class="button-continue" (click)="toggleForms('summary')">Continue</button>
+      <button class="button-continue" (click)="toggleForms('summary')" [disabled]="isDetailsValid()">Continue</button>
     </div>
 
     <div *ngIf="currentForm === 'summary'">
       <textarea placeholder="Job Summary" class="add-form-input" formControlName="summary"></textarea>
       <textarea placeholder="Key Responsibility" class="add-form-input" formControlName="responsibility"></textarea>
-      <button class="button-continue" (click)="toggleForms('skills')">Continue</button>
+      <button class="button-continue" (click)="toggleForms('skills')" [disabled]="isSummaryValid()">Continue</button>
     </div>
 
 
     <div *ngIf="currentForm === 'skills'">
       <textarea placeholder="Skills & Qualification" class="add-form-input" formControlName="skills_Qualification"></textarea>
       <textarea placeholder="Benefits" class="add-form-input" formControlName="benefits"></textarea>
-      <button class="button-continue" (click)="onSubmit()">Submit</button>
+      <button class="button-continue" (click)="onSubmit()" [disabled]="isResponsibilityValid()">Submit</button>
     </div>
 
 

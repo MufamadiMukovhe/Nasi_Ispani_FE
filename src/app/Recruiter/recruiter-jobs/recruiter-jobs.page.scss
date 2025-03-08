@@ -1,0 +1,33 @@
+.jobs-paragraph{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600 !important;
+    font-size: 15px;
+}
+
+.bg-color1 {
+    background-color: #FF4A17 !important; 
+    border-radius: 50%;
+    border: 1px solid #FF4A17;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+}
+
+.no-jobs {
+    width: 50px;
+    height: 50px;
+    
+}
+
+.date {
+    font-size: 14px;
+    background-color: #FF4A17;
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }

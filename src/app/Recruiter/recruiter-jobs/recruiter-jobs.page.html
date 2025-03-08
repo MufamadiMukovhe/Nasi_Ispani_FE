@@ -3,5 +3,73 @@
 <ion-content [fullscreen]="true">
 <app-profile-layer></app-profile-layer>
 
-<app-menu></app-menu>
+<div class="container justify-content-center align-items-center" style="margin-top: 5%;">
+    <div style="margin-bottom: 2%;">
+      <app-search-form (searchEvent)="onSearch($event.title, $event.location, $event.employmentType, $event.environmentType, $event.experienceLevel)"></app-search-form>
+    </div>
+  
+    <div *ngIf="filteredJobs.length === 0" class="text-center text-muted mt-4">
+      <div class="bg-color1">
+        <img src="../../../assets/images/nojobs.svg" class="no-jobs">
+      </div>
+      <p class="mt-2 jobs-paragraph">No available jobs</p>
+    </div>
+
+    <div class="box-2 position-relative" *ngFor="let job of filteredJobs" style="margin-bottom: 2%; margin-top: 5%;" >
+      
+      <!-- Edit & Delete Icons -->
+      <div class="action-icons">
+        <!--<i class="bi bi-pencil-fill edit-icon"></i>-->
+        <img src="../../../assets/images/delete.svg" class="delete-icon" (click)="confirmDelete(job)">
+      </div>
+
+      <!-- Job Title -->
+      <div class="d-flex align-items-center" (click)="toDetails()">
+        <i class="bi bi-briefcase icon-color"></i> <!-- Fixed icon -->
+        <div class="vertical-line mx-3"></div>
+        <span class="job-name">{{ job.title }}</span>
+      </div>
+  
+      <!-- Company Name -->
+      <div class="d-flex align-items-center">
+        <ion-img src="../../../assets/images/Company.svg"></ion-img> <!-- Fixed image -->
+        <div class="vertical-line mx-3"></div>
+        <span class="company-name">{{ job.company }}</span>
+      </div>
+  
+      <div class="d-flex align-items-center justify-content-between">
+        <!-- Left Side: Location -->
+        <div class="d-flex align-items-center">
+          <i class="bi bi-geo-alt-fill icon-color"></i> <!-- Fixed icon -->
+          <div class="vertical-line mx-3"></div>
+          <span class="company-name">{{ job.location }}</span>
+        </div>
+        <span class="date ms-auto" (click)="  toJob()">{{ job.applications}} Applications</span>
+      </div>
+      
+      
+              <div class="row p-2">
+                <div class="col job-info">
+                  {{ job.employmentCategories }}
+                </div>
+              
+                <div class="col job-info left2">
+                  {{ job.experience_lvl }}
+                </div>
+              
+                <div class="col job-info left2">
+                  {{ job.working_environment }}
+                </div>
+              
+                <div class="col job-info left2">
+                  {{ job.salary }}
+                </div>
+              </div>
+
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+<app-recruiter-menu></app-recruiter-menu>
 </ion-content>

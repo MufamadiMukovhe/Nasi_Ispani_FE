@@ -13,6 +13,7 @@ export class AddJobPage implements OnInit {
 
   isLoading: boolean = false;
   postJob: FormGroup;
+  isValid: boolean = false;
 
   constructor(private alertController: AlertController, private fb: FormBuilder, private router: Router) { 
   this.postJob = this.fb.group({
@@ -64,14 +65,32 @@ export class AddJobPage implements OnInit {
       }, 3000);
     } 
   }
+
+  //Validations
+  isDetailsValid(): boolean {
+    return this.postJob.get('name')?.value.trim() === '' &&
+    this.postJob.get('company')?.value.trim() === '' &&
+    this.postJob.get('location')?.value.trim() === '' &&
+    this.postJob.get('employmentType')?.value.trim() === '' &&
+    this.postJob.get('expLevel')?.value.trim() === '' &&
+    this.postJob.get('environmentType')?.value.trim() === '' &&
+    this.postJob.get('salary')?.value.trim() === ''
+    ;
+  }
+
+  isSummaryValid(): boolean {
+    return this.postJob.get('summary')?.value.trim() === '' &&
+    this.postJob.get('responsibility')?.value.trim() === '' ;
+  }
+
+  isResponsibilityValid(): boolean {
+    return this.postJob.get('skills_Qualification')?.value.trim() === '' &&
+    this.postJob.get('benefits')?.value.trim() === '' ;
+  }
+
+
   
- /* async showValidationError() {
-    const alert = await this.alertController.create({
-      header: 'Error',
-      message: 'Please fill in all required fields before posting the job.',
-      buttons: ['OK']
-    });
-    await alert.present();
-  }*/
+  
+  
   
 }

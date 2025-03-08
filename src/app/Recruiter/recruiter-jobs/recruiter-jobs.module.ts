@@ -9,6 +9,8 @@ import { RecruiterJobsPageRoutingModule } from './recruiter-jobs-routing.module'
 import { RecruiterJobsPage } from './recruiter-jobs.page';
 import { MenuPageModule } from 'src/app/components/menu/menu.module';
 import { ProfileLayerPageModule } from 'src/app/components/profile-layer/profile-layer.module';
+import { SearchFormPageModule } from 'src/app/components/search-form/search-form.module';
+import { RecruiterMenuPageModule } from 'src/app/components/recruiter-menu/recruiter-menu.module';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { ProfileLayerPageModule } from 'src/app/components/profile-layer/profile
     IonicModule,
     RecruiterJobsPageRoutingModule, 
     MenuPageModule,
-    ProfileLayerPageModule
+    ProfileLayerPageModule, SearchFormPageModule, RecruiterMenuPageModule
   ],
   declarations: [RecruiterJobsPage],
   exports: [RecruiterJobsPage]
