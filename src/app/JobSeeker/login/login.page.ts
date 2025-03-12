@@ -37,20 +37,23 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-
     this.isLoading = true;
     setTimeout(() => {
       const { email, password } = this.loginForm.value;
-
+  
       if (email === this.validEmail && password === this.validPassword) {
         this.errorMessage = ''; 
         this.router.navigate(['/landing-page']);
+      } else if (email === '01crusaders@gmail.com' && password === '1027') {
+        this.errorMessage = '';
+        this.router.navigate(['/dashboard']);
       } else {
         this.errorMessage = 'Invalid credentials';
       }
-
+  
       this.isLoading = false; 
     }, 3000);
   }
+  
 
 }

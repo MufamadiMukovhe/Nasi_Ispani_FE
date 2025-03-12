@@ -37,5 +37,7 @@ export class ProfileLayerPage implements OnInit {
     this.router.navigate(['./login']);
   }
 
+ 
+
 
 }
