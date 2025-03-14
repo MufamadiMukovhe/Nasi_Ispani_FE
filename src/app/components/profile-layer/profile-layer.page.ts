@@ -12,10 +12,14 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class ProfileLayerPage implements OnInit {
 
   profileImage: string | null = null;
+  currentDate: string = "";
+
 
   constructor(private router: Router,
     private profileService: ProfileService,
-  ) { }
+  ) {
+    this.currentDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+   }
 
   ngOnInit() {
     this.profileService.profileImage$.subscribe(image => {
